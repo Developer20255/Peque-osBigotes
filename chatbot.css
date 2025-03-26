@@ -1,0 +1,169 @@
+#chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #ffd700; /* Amarillo dorado en modo claro */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, background-color 0.3s;
+    z-index: 1000;
+}
+body.dark-mode #chatbot-button {
+    background-color: #d4af37; /* Tono más oscuro de amarillo en modo oscuro */
+}
+#chatbot-button span {
+    font-size: 2rem;
+    color: #1c2526; /* Gris oscuro para contraste en modo claro */
+}
+body.dark-mode #chatbot-button span {
+    color: #e0e0e0; /* Blanco suave en modo oscuro */
+}
+#chatbot-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#chatbot-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    max-height: 450px;
+    background-color: #ffffff; /* Fondo blanco en modo claro */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(20px);
+    opacity: 0;
+    display: flex;
+    flex-direction: column; /* Para distribuir el espacio verticalmente */
+}
+#chatbot-container:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
+}
+body.dark-mode #chatbot-container {
+    background-color: #1c2526; /* Gris oscuro en modo oscuro */
+}
+#chatbot-container.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
+#chatbot-header {
+    background-color: #ffd700; /* Fondo amarillo en modo claro */
+    padding: 0.75rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+body.dark-mode #chatbot-header {
+    background-color: #d4af37; /* Amarillo más oscuro en modo oscuro */
+    border-bottom: 1px solid #444;
+}
+#chatbot-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #1c2526; /* Gris oscuro para contraste en modo claro */
+}
+body.dark-mode #chatbot-header h3 {
+    color: #e0e0e0; /* Blanco suave en modo oscuro */
+}
+
+#chatbot-options {
+    padding: 1.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid #e0e0e0;
+    max-height: 250px;
+    overflow-y: auto;
+    flex-shrink: 0; /* Evita que las opciones se compriman */
+}
+body.dark-mode #chatbot-options {
+    background-color: rgba(28, 37, 38, 0.9);
+    border-bottom: 1px solid #444;
+}
+.chatbot-option {
+    display: block;
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    color: #333333;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+body.dark-mode .chatbot-option {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+.chatbot-option:hover {
+    background-color: #ffd700; /* Amarillo dorado al hover en modo claro */
+    color: #1c2526;
+    transform: translateX(5px);
+}
+body.dark-mode .chatbot-option:hover {
+    background-color: #d4af37; /* Amarillo más oscuro al hover en modo oscuro */
+    color: #e0e0e0;
+}
+
+#chatbot-response {
+    padding: 1rem;
+    color: #333333;
+    font-size: 1rem;
+    line-height: 1.4;
+    background-color: #f0f0f0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    flex-grow: 1; /* Permite que crezca para ocupar el espacio disponible */
+    overflow-y: auto; /* Añade scroll si el texto es muy largo */
+    min-height: 60px; /* Reducido para dar más flexibilidad */
+    max-height: 150px; /* Limita la altura máxima en pantallas grandes */
+}
+body.dark-mode #chatbot-response {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    #chatbot-container {
+        width: 85%;
+        right: 7.5%;
+        bottom: 80px;
+        max-height: 350px;
+    }
+    #chatbot-button {
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+    }
+    #chatbot-button span {
+        font-size: 1.5rem;
+    }
+    .chatbot-option {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+    }
+    #chatbot-response {
+        font-size: 0.9rem; /* Reducido ligeramente para mejor ajuste */
+        padding: 0.8rem;
+        max-height: 100px; /* Ajustado para modo celular */
+        overflow-y: auto; /* Scroll para respuestas largas */
+    }
+    #chatbot-header h3 {
+        font-size: 1.1rem;
+    }
+}

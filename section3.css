@@ -1,0 +1,117 @@
+.curiosities-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+.curiosities-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333333;
+}
+body.dark-mode .curiosities-section h2 {
+    color: #e0ffff;
+}
+
+.curiosities-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.curiosities-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.curiosities-images img {
+    width: 350px; /* Tamaño fijo en ancho */
+    height: 250px; /* Tamaño fijo en altura */
+    object-fit: contain; /* Muestra la imagen completa sin alargarla */
+    border: 5px solid #c8102e;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: opacity 0.5s ease-in-out;
+}
+body.dark-mode .curiosities-images img {
+    border-color: #ffd700;
+}
+.curiosities-images p {
+    font-size: 1.2rem;
+    color: #333333;
+    text-align: center;
+}
+body.dark-mode .curiosities-images p {
+    color: #e0ffff;
+}
+
+.curiosities-rubik {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 300px;
+    margin: 0 auto;
+}
+.rubik-square {
+    width: 90px;
+    height: 90px;
+    background-color: #f0f0f0;
+    border: 2px solid #333333;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #c8102e;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+body.dark-mode .rubik-square {
+    background-color: #2a2a2a;
+    border-color: #e0ffff;
+    color: #ffd700;
+}
+.rubik-square:hover {
+    transform: scale(1.1);
+}
+.rubik-square.active {
+    background-color: #c8102e;
+    color: #ffffff;
+}
+body.dark-mode .rubik-square.active {
+    background-color: #ffd700;
+    color: #1c2526;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .curiosities-container {
+        grid-template-columns: 1fr;
+    }
+    .curiosities-rubik {
+        width: 250px;
+    }
+    .rubik-square {
+        width: 75px;
+        height: 75px;
+        font-size: 0.9rem;
+    }
+}
+@media (max-width: 480px) {
+    .curiosities-images img {
+        width: 280px; /* Ajustado para pantallas pequeñas */
+        height: 200px; /* Ajustado para pantallas pequeñas */
+    }
+    .curiosities-images p {
+        font-size: 1rem;
+    }
+    .curiosities-rubik {
+        width: 200px;
+    }
+    .rubik-square {
+        width: 60px;
+        height: 60px;
+        font-size: 0.8rem;
+    }
+}

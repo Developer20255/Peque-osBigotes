@@ -1,0 +1,328 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Modo claro */
+body {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #ffffff; /* Fondo blanco en modo claro */
+    color: #121212; /* Letras oscuras en modo claro */
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    background-color: #121212; /* Fondo oscuro */
+    color: #fcf9f9; /* Letras claras en modo oscuro */
+}
+
+/* Menú */
+nav {
+    background-color: #dd1616; /* Morado Material Design en modo claro */
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between; /* Cambiado para alinear nombre a la izquierda y menú a la derecha */
+    align-items: center;
+    padding-right: 0.5rem;
+    padding-left: 1rem; /* Añadido para margen izquierdo */
+}
+body.dark-mode nav {
+    background-color: #070707; /* Morado oscuro Material Design en modo oscuro */
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0; /* Elimina el margen automático */
+    padding: 0; /* Elimina el padding predeterminado */
+}
+nav ul li {
+    margin-left: 2rem; /* Espacio entre elementos del menú */
+}
+nav ul li a {
+    color: #ffffff; /* Blanco en modo claro */
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s, transform 0.3s;
+}
+body.dark-mode nav ul li a {
+    color: #e0e0e0; /* Letras claras en modo oscuro */
+}
+nav ul li a:hover {
+    color: #ffd700; /* Amarillo al pasar el ratón */
+    transform: scale(1.1);
+}
+
+/* Hero */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('assets/images/ratafondo.jpg') no-repeat center/cover;
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    animation: fadeIn 1.5s ease-in;
+}
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    animation: slideUp 1s ease-out;
+}   
+.hero-text-background {
+    background-color: rgba(0, 0, 0, 0.3); /* Fondo blanco translúcido en modo claro */
+    padding: 1rem 2rem;
+    border-radius: 10px;
+}
+body.dark-mode .hero-text-background {
+    background-color: rgba(18, 18, 18, 0.8); /* Fondo oscuro translúcido en modo oscuro */
+}
+body.dark-mode .hero {
+    color: #ffffff; /* Letras claras en modo oscuro */
+}
+.hero-content button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #21d8c6; /* Turquesa Material Design en modo claro */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+body.dark-mode .hero-content button {
+    background-color: #ffd700; /* Turquesa oscuro Material Design en modo oscuro */
+}
+.hero-content button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Secciones */
+.section {
+    padding: 4rem 2rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    transition: color 0.3s;
+}
+body.dark-mode .section h2 {
+    color: #e0e0e0; /* Letras claras en modo oscuro */
+}
+.section:hover h2 {
+    color: #ffd700; /* Amarillo al pasar el ratón */
+}
+
+/* Banner */
+.banner {
+    background-color: #dd1616; /* Rojo en modo claro */
+    height: 100px;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s, transform 0.5s;
+    overflow: hidden;
+    position: relative;
+}
+body.dark-mode .banner {
+    background-color: #ffd700; /* Amarillo dorado en modo oscuro */
+    color: #000000;
+}
+.banner.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+.banner-text-container {
+    white-space: nowrap;
+    position: absolute;
+    left: 100%; /* Inicia fuera del banner (a la derecha) */
+    animation: moveText 20s linear infinite; /* Duración ajustada a 15s */
+}
+@keyframes moveText {
+    0% { transform: translateX(0); } /* Comienza en su posición inicial (100%) */
+    100% { transform: translateX(calc(-100% - 100%)); } /* Se mueve el ancho del texto + ancho del banner */
+}
+.banner-text {
+    display: inline-block;
+    padding-right: 100%; /* Espacio para que el texto no se corte al inicio */
+}
+
+/* Footer */
+footer {
+    background-color: #dd1616; /* Morado Material Design en modo claro */
+    padding: 2rem 1rem;
+    text-align: center;
+    color: #090909;
+}
+body.dark-mode footer {
+    background-color: #ffd700; /* Morado oscuro Material Design en modo oscuro */
+    color: #000000; /* Letras claras en modo oscuro */
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 1rem auto;
+}
+
+.footer-column {
+    color: #000000; /* Blanco en modo claro para contraste con fondo morado */
+}
+body.dark-mode .footer-column {
+    color: #000000; /* Letras claras en modo oscuro */
+}
+
+.footer-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #ffd700; /* Amarillo para destacar títulos */
+}
+body.dark-mode .footer-column h3 {
+    color: #ea1010; /* Mismo amarillo en modo oscuro para consistencia */
+}
+
+.footer-column p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-column ul li {
+    margin: 0.5rem 0;
+}
+.footer-column ul li a {
+    color: #000000; /* Blanco en modo claro */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+body.dark-mode .footer-column ul li a {
+    color: #070606; /* Letras claras en modo oscuro */
+}
+.footer-column ul li a:hover {
+    color: #03dac6; /* Turquesa al pasar el ratón */
+}
+body.dark-mode .footer-column ul li a:hover {
+    color: #018786; /* Turquesa oscuro en modo oscuro */
+}
+
+.footer-copy {
+    font-size: 0.9rem;
+    color: #cccccc; /* Gris claro para el copyright en modo claro */
+    margin-top: 1rem;
+}
+body.dark-mode .footer-copy {
+    color: #999999; /* Gris más oscuro en modo oscuro */
+}
+
+/* Botón modo oscuro */
+#dark-mode-toggle {
+    position: fixed;
+    top: 5rem;
+    right: 1rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 1001;
+    transition: transform 0.3s;
+    color: #ffffff; /* Blanco en modo claro */
+}
+body.dark-mode #dark-mode-toggle {
+    color: #e0e0e0; /* Letras claras en modo oscuro */
+}
+#dark-mode-toggle:hover {
+    transform: rotate(180deg);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.8; }
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Nombre de la web en el nav */
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff; /* Blanco en modo claro */
+    text-decoration: none;
+}
+body.dark-mode .nav-brand {
+    color: #e0e0e0; /* Letras claras en modo oscuro */
+}
+.nav-brand:hover {
+    color: #ffd700; /* Amarillo al pasar el ratón */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+    }
+    .nav-brand {
+        margin-bottom: 0.5rem;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 0.5rem 1rem;
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .section {
+        padding: 2rem 1rem;
+    }
+    #dark-mode-toggle {
+        top: 4rem;
+        right: 0.5rem;
+    }
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+    .footer-column h3 {
+        font-size: 1.1rem;
+    }
+    .footer-column p, .footer-column ul li {
+        font-size: 0.9rem;
+    }
+}
