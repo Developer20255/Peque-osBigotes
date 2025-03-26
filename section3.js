@@ -23,12 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         { 
             title: "Sociables", 
-            image: "assets/images/rata5.jpg", 
+            image: "assets/images/rata6.jpg", 
             text: "Las ratas son animales muy sociales y prefieren vivir en grupos. Forman jerarquías, se cuidan entre sí y muestran comportamientos de empatía, como ayudar a una rata atrapada."
         },
         { 
             title: "Sueño", 
-            image: "assets/images/rata6.jpg", 
+            image: "assets/images/rata5.jpg", 
             text: "Las ratas sueñan cuando duermen, especialmente las jóvenes, según estudios de ondas cerebrales. Sus sueños podrían estar relacionados con explorar su entorno o repetir actividades del día."
         },
         { 

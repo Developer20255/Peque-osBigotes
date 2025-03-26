@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Datos de las ratitas
     const ratitasData = {
         1: {
-            name: "Ratita BERKSHIRE",
-            price: "35 SOLES",
-            desc: "Una ratita tranquila y curiosa, perfecta para principiantes.",
+            name: "🐀 Rata Berkshire – Elegancia y Dulzura",
+            price: "40 SOLES",
+            desc: "¿Amas las ratitas con estilo? 🎀 La Berkshire es la reina de la elegancia: su vientre blanco y su lomo oscuro la hacen irresistible. Dócil, cariñosa y perfecta para convivir en familia, ¡será la consentida de tu hogar! 💖",
             images: [
                 "assets/images/rata1-1.jpg",
                 "assets/images/rata1-2.jpg",
@@ -13,20 +13,20 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         2: {
-            name: "Ratita HOODED",
+            name: "🐀 Rata Hooded – Aventurera con Estilo",
             price: "40 SOLES",
-            desc: "Amigable y juguetona, ideal para familias.",
+            desc: "¡Con su 'capa' de superhéroe, la Hooded está lista para la acción! 🏃‍♂️💨 Juguetona, curiosa y llena de energía, es perfecta para quienes buscan una rata con personalidad y un look inconfundible.",
             images: [
                 "assets/images/rata2-1.jpg",
                 "assets/images/rata2-2.jpg",
                 "assets/images/rata2-3.jpg",
-                "assets/images/rata2-4.jpg"
+                "assets/images/rata2-5.jpg"
             ]
         },
         3: {
-            name: "Ratita WISTAR",
+            name: "🔬 Rata Wistar – La Científica Confiable",
             price: "35 - 45 SOLES",
-            desc: "Inteligente y activa, le encanta explorar.",
+            desc: "Precisión y salud en cuatro patas. 🧪 La Wistar es la favorita de laboratorios y amantes de las ratas por su temperamento tranquilo y genética robusta. Ideal para investigación, crianza o simplemente como mascota inteligente.",
             images: [
                 "assets/images/rata3-1.jpg",
                 "assets/images/rata3-2.jpg",
@@ -35,9 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         4: {
-            name: "Ratita Marrón",
-            price: "$18",
-            desc: "Dulce y tímida, necesita un hogar amoroso.",
+            name: "Ratita",
+            price: "60 Soles",
+            desc: "Dulce y tímida.",
             images: [
                 "assets/images/rata4-1.jpg",
                 "assets/images/rata4-2.jpg",
@@ -82,8 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
             ratita.images.forEach((src, index) => {
                 const img = document.createElement('img');
                 img.src = src;
+                img.alt = `${ratita.name} - Imagen ${index + 1}`;
                 if (index === 0) {
-                    img.classList.add('active'); // Solo añadir 'active' a la primera imagen
+                    img.classList.add('active');
                 }
                 carouselImages.appendChild(img);
             });
@@ -101,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Navegación del carrusel - Anterior
     prevBtn.addEventListener('click', () => {
         const images = carouselImages.querySelectorAll('img');
-        if (images.length === 0) return; // Evitar errores si no hay imágenes
+        if (images.length === 0) return;
         images[currentIndex].classList.remove('active');
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         images[currentIndex].classList.add('active');
@@ -110,16 +111,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Navegación del carrusel - Siguiente
     nextBtn.addEventListener('click', () => {
         const images = carouselImages.querySelectorAll('img');
-        if (images.length === 0) return; // Evitar errores si no hay imágenes
+        if (images.length === 0) return;
         images[currentIndex].classList.remove('active');
         currentIndex = (currentIndex + 1) % images.length;
         images[currentIndex].classList.add('active');
     });
 
-    // Ampliar imagen (simplificado)
+    // Zoom en las imágenes del carrusel
     carouselImages.addEventListener('click', (e) => {
         if (e.target.tagName === 'IMG') {
-            alert('Aquí se ampliaría la imagen con controles adicionales.');
+            const img = e.target;
+            if (img.classList.contains('zoomed')) {
+                img.classList.remove('zoomed'); // Quita el zoom
+            } else {
+                // Remueve zoom de otras imágenes
+                carouselImages.querySelectorAll('img').forEach(i => i.classList.remove('zoomed'));
+                img.classList.add('zoomed'); // Aplica zoom a la imagen clickeada
+            }
         }
     });
 });

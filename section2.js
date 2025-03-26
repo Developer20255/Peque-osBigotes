@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Datos de las imágenes y textos para el carrusel
     const offerData = [
-        { image: "assets/images/rata1-3.jpg", text: "¡Grandes descuentos en ratas BERKSHIRE, SI LLEVAS 2 LA UNIDAD TE SALE A 30 SOLES!" },
-        { image: "assets/images/rata2-1.jpg", text: "¡Ofertas especiales en ratas HOODED, SI LLEVAS 2 LA UNIDAD TE SALE A 30 SOLES!" },
-        { image: "assets/images/rata3-1.jpg", text: "¡Ofertas especiales en ratas WISTAR, SI LLEVAS 2 LA UNIDAD TE SALE A 30 SOLES!" }
+        { image: "assets/images/rata1-3.jpg", text: "¡Grandes descuentos en ratas BERKSHIRE, LLEVATE 2 X 70 SOLES!" },
+        { image: "assets/images/rata2-1.jpg", text: "¡Ofertas especiales en ratas HOODED,LLEVATE 2 X 70 SOLES!" },
+        { image: "assets/images/rata3-1.jpg", text: "¡Ofertas especiales en ratas WISTAR, LLEVATE 2 X 70 SOLES!" }
     ];
 
     // Seleccionar el contenedor de imágenes y el texto animado
